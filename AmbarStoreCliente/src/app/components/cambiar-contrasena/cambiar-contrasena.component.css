@@ -1,0 +1,32 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+body {
+    background-color: #F2E4D2;
+}
+
+.loginDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginEntradas {
+    width: 400px;
+    background-color: #000000;
+}
+
+.botonIngresar {
+    background-color: #000000;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.asterisco {
+    color: red;
+    margin-top: 30px;
+    font-size: 20px;
+}

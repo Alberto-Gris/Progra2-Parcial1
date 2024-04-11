@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="container">
+        <div class="container">
+            <h3 class="text-align center">Nuevo Cliente</h3>
+            <form>
+                <div class="input-field">
+                    <label for="usuarioNombre">Nombre</label>
+                    <input [(ngModel)]="usuario.nombre_usuario" id="nombre_usuario" type="text" class="validate" name="nombre_usuario">
+                </div>
+                <div class="input-field">
+                    <label for="usuarioTelefono">Telefono</label>
+                    <input [(ngModel)]="usuario.telefono" id="telefono" type="text" class="validate" name="telefono">
+                </div>
+                <div class="input-field">
+                    <label for="usuarioCorreo">Correo</label>
+                    <input [(ngModel)]="usuario.correo" id="correo" type="text" class="validate" name="correo">
+                </div>
+            </form>
+            <div class="text-align center">
+                <button (click)="crearCliente()" class="waves-effect waves-light btn botonNuevoCliente" type="submit" name="action"><i class="material-icons iconoss">check</i></button>
+            </div>
+        </div>
+    </div>
+</div>

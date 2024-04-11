@@ -1,0 +1,118 @@
+<div class="row bodySubtitulo">
+    <div class="col l4"></div>
+    <div class="col l4">
+        <h3 *ngIf="mostrarCarritosModel.length > 0">Pagar Carrito</h3>
+    </div>
+    <div class="col l4"></div>
+</div>
+
+<div class="row">
+    <div class="col l3"></div>
+    <div class="col l4">
+        <h3 *ngIf="mostrarCarritosModel.length > 0" class="text-align center">Carrito</h3>
+        <table *ngIf="mostrarCarritosModel.length > 0">
+            <tr class="centrar" *ngFor="let detalle of mostrarCarritosModel">
+                <!--td class="imagenCarrito"><img src="../../../assets/imgs/aretes.png" alt="Carrito" width="135" height="135"></td-->
+                <td class="margen">
+                    <h6 class="descripcionSubrayada">{{detalle.producto}}</h6>
+                    <p>Precio Unitario: ${{detalle.monto_eventual_sin_descuento / detalle.cantidad}}</p>
+                    <p>Cantidad: {{detalle.cantidad}}</p>
+                    <div *ngIf="detalle.descuento > 0">
+                        <br>
+                        <p>Subtotal: ${{detalle.monto_eventual_sin_descuento}}</p>
+                        <p class="descuento">Descuento: ${{(detalle.descuento * detalle.monto_eventual_sin_descuento) /
+                            100}}</p>
+                    </div>
+                    <p class="total">Total: ${{detalle.monto_eventual}}</p>
+                </td>
+
+                <td class="margen">
+                    <div *ngIf="detalle.limite == false; then thenLimite else elseLimite"></div>
+                    <ng-template #thenLimite>
+                        <a (click)="AnadirProducto(detalle.id_producto, detalle.producto)"
+                            class="waves-effect waves-light btn botonesAñadir"><i
+                                class="material-icons iconoss">add</i></a>
+                    </ng-template>
+                    <ng-template #elseLimite>
+                        <a (click)="AnadirProducto(detalle.id_producto, detalle.producto)"
+                            class="waves-effect waves-light btn disabled botonesAñadir"><i
+                                class="material-icons iconoss">add</i></a>
+                    </ng-template>
+
+                    <a (click)="EliminarUnoCarrito(detalle.id_producto, detalle.producto)"
+                        class="waves-effect waves-light btn botonesAñadir"><i
+                            class="material-icons iconoss">remove</i></a>
+
+                    <br>
+                    <a (click)="ComprarCantidad(detalle.id_producto)"
+                        class="waves-effect waves-light btn botonesAñadir">CANTIDAD</a>
+
+                    <br>
+                    <br>
+                    <a (click)="EliminarTodoCarrito(detalle.id_producto, detalle.producto)"
+                        class="waves-effect waves-light btn botonesAñadir"><i
+                            class="material-icons iconoss">delete</i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col l2">
+        <h4 *ngIf="mostrarCarritosModel.length > 0" class="text-align center">Resumen</h4>
+        <table *ngIf="mostrarCarritosModel.length > 0">
+            <tr>
+                <td class="resumen">
+                    <p>Subtotal:</p>
+                </td>
+                <td>
+                    <p>${{subtotal}}</p>
+                </td>
+            </tr>
+            <tr class="descuento">
+                <td class="resumen">
+                    <p>Descuento:</p>
+                </td>
+                <td>
+                    <p>${{descuento}}</p>
+                </td>
+            </tr>
+            <tr class="totales">
+                <td class="resumen">
+                    <p>Total:</p>
+                </td>
+                <td>
+                    <p>${{total}}</p>
+                </td>
+            </tr>
+        </table>
+        <a (click)="ComprarCarrito()" *ngIf="mostrarCarritosModel.length > 0"
+            class="waves-effect waves-light btn botonCheck"><i class="material-icons iconoss">check</i></a>
+    </div>
+    <div class="col l3"></div>
+</div>
+
+<div class="row">
+    <div class="container">
+        <br>
+        <br>
+        <h3 *ngIf="mostrarCarritosModel.length == 0" class="text-align center">Carrito Vacio :(</h3>
+    </div>
+</div>
+
+<div id="modalAgregar" class="modal">
+    <div class="modal-content">
+        <h4>Agregar Producto</h4>
+        <div class="row">
+            <select [(ngModel)]="producto.cantidad_producto" class="browser-default">
+                <option *ngFor="let cantidades of getCantidadOptions()" [value]="cantidades">
+                    {{ cantidades }}
+                </option>
+            </select>
+        </div>
+        <div class="row">
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close btn-flat">Cancelar</a>
+            <a class="btn" (click)="ActualizarCantidad()">Confirmar</a>
+        </div>
+    </div>
+</div>

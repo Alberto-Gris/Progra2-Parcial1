@@ -1,0 +1,119 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.barraNavegacion {
+    background-color: #99CDCD;
+}
+
+.barraNavegacionVendedor {
+    width: 200px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.iconoCarrito {
+    width: 140px;
+    text-align: center;
+}
+
+.barraNavegacionSub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.barraNavegacionSubElementos {
+    width: 15%;
+}
+
+.exit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    width: 140px;
+    height: 65px;
+}
+
+.flecha {
+    color: white;
+    text-align: center;
+}
+
+.bodySubtitulo {
+    text-align: center;
+}
+
+.tablaCabecera {
+    border-collapse: collapse;
+    padding: 1%;
+    text-align: center;
+    background-color: #FFE69A;
+}
+
+.tablaFilas {
+    padding: 1%;
+    text-align: center;
+}
+
+.botonAcciones {
+    text-align: center;
+    background-color: #CA99C5;
+}
+
+.iconoss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 7px;
+}
+
+.iconoss2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.datos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.tablaCabecera2 {
+    border-collapse: collapse;
+    padding: 1%;
+    text-align: center;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.ModalContenido {
+    text-align: center;
+    background-color: #F2E4D2;
+}
+
+.formularios {
+    border-radius: 8px;
+}
+
+.ModalFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.ModalBotones {
+    background-color: #000000;
+    border-radius: 15px;
+}
+.espacio{
+    margin-bottom: 6rem;
+}

@@ -1,0 +1,242 @@
+<div class="row bodySubtitulo">
+    <div class="col l4"></div>
+    <div class="col l4">
+        <h4>{{titulo}}</h4>
+        <span>
+            <a  class="botonNuevoProducto waves-effect waves-light btn botonMostrarProductos" routerLink="/admin/productos"><i
+                    class="material-icons iconoss">keyboard_backspace</i></a>
+        </span>
+        <br>
+        <br>
+        <table class="hide-on-med nuevoProducto">
+            <thead>
+                <tr>
+                    <th class="colores">Nuevo Producto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="colores">
+
+                        <a (click)="CrearProducto()" href="#modalNuevoProducto"
+                            class="btn  modal-trigger waves-effect waves-light botonNuevoProducto"><i
+                                class="material-icons iconoss">add</i></a>
+
+                                <div id="modalNuevoProducto" class="col s4 modal modal-fixed-footer">
+                                    <div class="modal-content ModalContenido">
+                                        <form #FormularioNuevoProducto="ngForm" class="formularios">
+                                            <h4>Nuevo Producto</h4>
+        
+                                            <div class="row">
+                                                <div class="col l1"></div>
+                                                <div class="col l10 input-field">
+                                                    <label for="Producto">Producto</label>
+                                                    <input [(ngModel)]="producto.producto" id="producto" type="text"
+                                                        class="validate" name="producto" required #productoo="ngModel">
+                                                </div>
+                                                <div class="alert alert-danger mt-2 asterisco" [hidden]="productoo.valid">*
+                                                </div>
+                                                <div class="col l1"></div>
+                                            </div>
+        
+                                            <div class="row">
+                                                <div class="col l1"></div>
+                                                <div class="col l10 input-field">
+                                                    <label for="precio">Precio</label>
+                                                    <input [(ngModel)]="producto.precio" id="precio" type="text"
+                                                        class="validate" name="precio" required #precioo="ngModel">
+                                                </div>
+                                                <div class="alert alert-danger mt-2 asterisco" [hidden]="precioo.valid">*</div>
+                                                <div class="col l1"></div>
+                                            </div>
+        
+                                            <div class="row">
+                                                <div class="col l1"></div>
+                                                <div class="col l10 input-field">
+                                                    <label for="costo">Costo</label>
+                                                    <input [(ngModel)]="producto.costo" id="costo" type="text" class="validate"
+                                                        name="costo" required #costoo="ngModel">
+                                                </div>
+                                                <div class="alert alert-danger mt-2 asterisco" [hidden]="costoo.valid">*</div>
+                                                <div class="col l1"></div>
+                                            </div>
+        
+                                            <div class="row">
+                                                <div class="col l1"></div>
+                                                <div class="col l10 input-field">
+                                                    <label for="cantidad">Cantidad</label>
+                                                    <input [(ngModel)]="producto.cantidad" id="cantidad" type="text"
+                                                        class="validate" name="cantidad" required #cantidadd="ngModel">
+                                                </div>
+                                                <div class="alert alert-danger mt-2 asterisco" [hidden]="cantidadd.valid">*
+                                                </div>
+                                                <div class="col l1"></div>
+                                            </div>
+        
+                                            <div class="row">
+                                                <div class="col l1"></div>
+                                                <div class="col l10 input-field">
+                                                    <label for="descripcion">Descripcion</label>
+                                                    <input [(ngModel)]="producto.descripcion" id="descripcion" type="text"
+                                                        class="validate" name="descripcion" required #descripcionn="ngModel">
+                                                </div>
+                                                <div class="alert alert-danger mt-2 asterisco" [hidden]="descripcionn.valid">*
+                                                </div>
+                                                <div class="col l1"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col l1"></div>
+                                                <div class="col l10 input-field">
+                                                    <label for="descripcion" class="active">Descuento</label>
+                                                    <input [(ngModel)]="producto.id_tipoDescuento" id="descripcion" type="text"
+                                                        class="validate" name="id_tipoDescuento" required #desc="ngModel">
+                                                </div>
+                                                <div class="alert alert-danger mt-2 asterisco" [hidden]="desc.valid">*
+                                                </div>
+                                                <div class="col l1"></div>
+                                            </div>
+                                            <br>
+                                            <br>
+        
+                                            <!--
+                                            <div class="input-field ModalSeleccionador">
+                                                <select class="form-control" [(ngModel)]="producto.id_tipoProducto" id="idTipoProducto" type="text" class="validate" name="idTipoProducto">
+                                                  <option value="" disabled selected>...</option>
+                                                  <option *ngFor="let tipoProducto of tiposProductos" [value]="tipoProducto.id">{{tipoProducto.tipo_producto}}</option>
+                                                </select>
+                                                <label>Tipo De Producto</label>
+                                            </div>
+                                            -->
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer ModalFooter">
+                                        <button (click)="NuevoProducto()"
+                                            class="modal-close waves-effect waves-green btn ModalBotones"
+                                            [disabled]="FormularioNuevoProducto.invalid">Confirmar</button>
+                                        <a class="modal-close waves-effect waves-green btn ModalBotones">Cancelar</a>
+                                    </div>
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col l4"></div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col s3 card medium" *ngFor="let p of productos | paginate: {
+        itemsPerPage: pageSize,
+        currentPage: p
+        };let i=index">
+            <!--<div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="../../../assets/imgs/aretes.png" width="300" height="300">
+        </div>-->
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4 cardTitulo">{{p.producto}}</span>
+                <p class="cardPrecio">{{p.descripcion}}</p>
+                <br>
+                <br>
+                <span class="card-title activator grey-text text-darken-4 cardPrecio">${{p.precio}}</span>
+                <label class="labelDisponibles">Disponibles: {{p.cantidad}}</label>
+                <br>
+                <p class="cardEditar"><a (click)="EditarProducto(p.id)"
+                        class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                        href="#modalEditarProducto"><i class="material-icons iconoss">edit</i></a>
+                        <a (click)="EliminarProducto(p.id,p.producto)"
+                        class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                        ><i class="material-icons iconoss">delete</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="row centrar espacio">
+        <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+            nextLabel="Siguiente">
+        </pagination-controls>
+    </div>
+</div>
+
+<div class="row bodySubtitulo">
+    <div id="modalEditarProducto" class="col s4 modal modal-fixed-footer">
+        <div class="modal-content ModalContenido">
+            <h4>Editar Producto</h4>
+            <form #FormularioEditarProducto="ngForm" class="formularios">
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_producto">Producto</label>
+                        <input [(ngModel)]="producto.producto" id="editar_nombre_producto" type="text" class="validate"
+                            name="editar_nombre_producto" required #productooo="ngModel">
+                    </div>
+                    <div class="alert alert-danger mt-2 asterisco" [hidden]="productooo.valid">*
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_precio">Precio</label>
+                        <input [(ngModel)]="producto.precio" id="editar_precio" type="text" class="validate"
+                            name="editar_precio" required #preciooo="ngModel">
+                    </div>
+                    <div class="alert alert-danger mt-2 asterisco" [hidden]="preciooo.valid">*
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_costo">Costo</label>
+                        <input [(ngModel)]="producto.costo" id="editar_costo" type="text" class="validate"
+                            name="editar_costo" required #costooo="ngModel">
+                    </div>
+                    <div class="alert alert-danger mt-2 asterisco" [hidden]="costooo.valid">*
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_cantidad">Cantidad</label>
+                        <input [(ngModel)]="producto.cantidad" id="editar_orreo" type="text" class="validate"
+                            name="editar_cantidad" required #cantidaddd="ngModel">
+                    </div>
+                    <div class="alert alert-danger mt-2 asterisco" [hidden]="cantidaddd.valid">*
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_telefono">Descripcion</label>
+                        <input [(ngModel)]="producto.descripcion" id="editar_descripcion" type="text" class="validate"
+                            name="editar_descripcion" required #descripcionnn="ngModel">
+                    </div>
+                    <div class="alert alert-danger mt-2 asterisco" [hidden]="descripcionnn.valid">*
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label for="descripcion" class="active">Descuento</label>
+                        <input [(ngModel)]="producto.id_tipoDescuento" id="descripcion" type="text"
+                            class="validate" name="id_tipoDescuento">
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer ModalFooter">
+            <button (click)="ConfirmarEdicionProducto(producto.id,producto.producto)"
+                class="modal-close waves-effect waves-green btn ModalBotones"
+                [disabled]="FormularioEditarProducto.invalid">Confirmar</button>
+            <a class="modal-close waves-effect waves-green btn ModalBotones">Cancelar</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.barraNavegacion {
+    background-color: #99CDCD;
+}
+
+.barraNavegacionVendedor {
+    width: 200px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.iconoCarrito {
+    width: 140px;
+    text-align: center;
+}
+
+.barraNavegacionSub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.barraNavegacionSubElementos {
+    width: 15%;
+}
+
+.exit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    width: 140px;
+    height: 65px;
+}
+
+.flecha {
+    color: white;
+    text-align: center;
+}
+
+.bodySubtitulo {
+    text-align: center;
+}
+
+.carritoDescripcion {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    color: black;
+}
+
+.descripcionSubrayada {
+    text-decoration: underline;
+    font-size: 22px;
+}
+
+.total {
+    font-size: 20px;
+    color: green;
+}
+
+.imagenCarrito {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: 10px;
+}
+
+.botonesAñadir {
+    background-color: #CA99C5;
+}
+
+.botonBasura {
+    display: flex;
+    flex-direction: column;
+    margin-left: 55px;
+    margin-top: 50px;
+    width: 55px;
+    background-color: #CA99C5;
+}
+
+.botonCheck {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #CA99C5;
+    margin-top: 30px;
+    margin-left: 100px;
+    height: 60px;
+    width: 90px;
+}
+
+.resumen {
+    text-align: center;
+}
+
+.descuento {
+    color: red;
+}
+
+.totales {
+    text-align: center;
+    color: green;;
+}
+
+.iconoss {
+    margin-top: 6px;
+}
+
+.iconoss2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.centrar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    color: black;
+}
+
+.margen{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

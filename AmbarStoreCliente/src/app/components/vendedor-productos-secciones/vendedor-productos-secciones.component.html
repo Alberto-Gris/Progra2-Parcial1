@@ -1,0 +1,81 @@
+<div class="row bodySubtitulo">
+    <div class="col l4"></div>
+    <div class="col l4">
+        <h4>{{titulo}}</h4>
+    </div>
+    <div class="col l4"></div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m4" *ngFor="let p of productos | paginate: {
+            itemsPerPage: pageSize,
+            currentPage: p
+            };let i=index">
+            <!--<div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="../../../assets/imgs/aretes.png" width="300" height="300">
+        </div>-->
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4 cardTitulo">{{p.producto}}</span>
+                <p class="cardPrecio">{{p.descripcion}}</p>
+                <br>
+                <br>
+                <span class="card-title activator grey-text text-darken-4 cardPrecio">${{p.precio}}</span>
+                <div *ngIf="p.cantidad > 0; then thenCantidad else elseCantidad"></div>
+                    <ng-template #thenCantidad>
+                        <label class="labelDisponibles">Disponibles: {{p.cantidad}}</label>
+                        <p class="cardEditar">
+                                <a (click)="ComprarCantidad(p.id)"
+                                class="waves-effect waves-light btn modal-trigger botonAcciones"
+                                ><i class="material-icons iconoss">add_shopping_cart</i></a></p>
+                    </ng-template>
+                    <ng-template #elseCantidad>
+                        <br>
+                        <p class="labelNoDisponibles">AGOTADO</p>
+                    </ng-template>
+                <br>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="row centrar espacio">
+        <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+            nextLabel="Siguiente">
+        </pagination-controls>
+    </div>
+</div>
+
+
+<div class="row bodySubtitulo">
+    <div id="modalApartarProducto" class="col s4 modal modal-fixed-footer">
+        <div class="modal-content ModalContenido">
+            <h4>Apartar</h4>
+            <form #FormularioApartarProducto="ngForm" class="formularios">
+                
+            </form>
+        </div>
+        <div class="modal-footer ModalFooter">
+
+        </div>
+    </div>
+</div>
+<div  id="modalAgregar" class="modal">
+    <div class="modal-content">
+      <h4>Agregar Producto</h4>
+      <div class="row">
+        <select [(ngModel)]="producto.cantidad_producto" class="browser-default">
+            <option *ngFor="let cantidades of getCantidadOptions()" [value]="cantidades">
+              {{ cantidades }}
+            </option>
+          </select>
+      </div>
+      <div class="row">
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close btn-flat">Cancelar</a>
+      <a class="btn" (click)="AnadirCarrito()">Agregar</a>
+  </div>
+  </div>
+</div>

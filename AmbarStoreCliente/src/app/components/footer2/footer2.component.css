@@ -1,0 +1,37 @@
+/*----iconos footer-----*/
+.footer {
+    background-color: #99CDCD;
+    padding: 0.5rem;
+    text-align: center;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el footer esté por encima del contenido */
+}
+
+.brand-logo {
+    float: left;
+    margin-right: 2px;
+}
+
+.iconos_footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1px;
+}
+
+.imagen_icono {
+    width: 30px;
+    margin: 0 5px;
+}
+
+.text_footer {
+    font-weight: 700;
+    font-size: 14px;
+    color: #000;
+}
+
+body {
+    position: relative;
+    margin-top: 50rem; /* Ajusta este valor según la altura del footer y otros elementos que necesites dejar espacio para */
+}

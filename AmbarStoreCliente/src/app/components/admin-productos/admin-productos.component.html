@@ -1,0 +1,22 @@
+<div class="row bodySubtitulo">
+    <div class="col l4"></div>
+    <div class="col l4">
+        <h4>PRODUCTOS</h4>
+    </div>
+    <div class="col l4"></div>
+</div>
+
+<div class="row">
+    <div class="col l5"></div>
+    <div class="col l2">
+        <label>Tipo de Producto</label>
+        <div class="input-field">
+            <select [(ngModel)]='tipoProducto.id' class="browser-default">
+                <option *ngFor="let t of tiposProductos" [value]="t.id">{{t.tipo_producto}}</option>
+            </select>
+        </div>
+        <p class="cardAñadir"><a (click)="seleccionarTipoProducto()" class="waves-effect waves-light btn cardAñadirBoton"><i
+            class="material-icons iconoss">border_all</i></a></p>
+    </div>
+    <div class="col l5"></div>
+</div>

@@ -1,0 +1,85 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+
+.barraNavegacion {
+    background-color: #99CDCD;
+}
+
+.barraNavegacionVendedor {
+    width: 200px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.iconoCarrito {
+    width: 140px;
+    text-align: center;
+}
+
+.barraNavegacionSub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.barraNavegacionSubElementos {
+    width: 15%;
+}
+
+.exit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    width: 140px;
+    height: 65px;
+}
+
+.flecha {
+    color: white;
+    text-align: center;
+}
+
+.bodySubtitulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.cardTitulo {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.cardAñadir {
+    text-align: center;
+}
+
+.cardAñadirBoton {
+    text-align: center;
+    background-color: #CA99C5;
+}
+.botonNuevoCliente {
+    background-color: #CA99C5;
+    text-align: center;
+    height: 45px;
+    width: 90px;
+}
+.iconoss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.iconoss2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}

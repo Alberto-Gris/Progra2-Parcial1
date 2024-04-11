@@ -1,0 +1,81 @@
+<div class="row bodySubtitulo">
+    <div class="col l4"></div>
+    <div class="col l4">
+        <h3>VENTAS DEL DIA</h3>
+        <h5>Fecha: {{fechaDeHoy | date:'dd/MM/yyyy'}}</h5>
+    </div>
+    <div class="col l4"></div>
+</div>
+
+<div class="container espacio">
+    <div *ngIf="ventasDia.length != 0; then thenVentas1"></div>
+    <ng-template #thenVentas1>
+        <div class="row">
+            <div class="uno">
+                <br>
+                <h5 class="datos">Total: ${{totalDia}}</h5>
+            </div>
+        </div>
+        <table *ngIf="ventasDia != undefined">
+            <thead>
+                <tr>
+                    <th class="tablaCabecera2" colspan="4"><h5>Carritos</h5></th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th class="tablaCabecera">Cajero</th>
+                    <th class="tablaCabecera">Hora</th>
+                    <th class="tablaCabecera">Total</th>
+                    <th class="tablaCabecera"></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let ventaaDia of ventasDia">
+                <tr>
+                    <td class="tablaFilas">{{ventaaDia.cajero}}</td>
+                    <td class="tablaFilas">{{ ventaaDia.hora }}</td>
+                    <td class="tablaFilas">${{ventaaDia.monto_eventual}}</td>
+                    <td class="tablaFilas"><a (click)="MostrarCarrito(ventaaDia.id)"
+                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                            href="#modalMostrarCarrito"><i
+                                class="material-icons iconoss">format_align_justify</i></a></td>
+                </tr>
+        </table>
+    </ng-template>
+</div>
+
+<div id="modalMostrarCarrito" class="col s4 modal modal-fixed-footer">
+    <div class="modal-content ModalContenido">
+        <h4>Detalles</h4>
+        <br>
+        <form #FormularioEditarCajero="ngForm" class="formularios">
+            <div class="row">
+                <div>
+                    <table *ngIf="mostrarCarritoModel != undefined">
+                        <thead>
+                            <tr>
+                                <th class="tablaCabecera">Producto</th>
+
+                                <th class="tablaCabecera">Cantidad</th>
+                                <th class="tablaCabecera">Total Sin Descuento</th>
+                                <th class="tablaCabecera">Descuento</th>
+                                <th class="tablaCabecera">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let detalle of mostrarCarritoModel">
+                            <tr>
+                                <td class="tablaFilas">{{detalle.producto}}</td>
+                                <td class="tablaFilas">{{detalle.cantidad}}</td>
+                                <td class="tablaFilas">${{detalle.monto_eventual_sin_descuento}}</td>
+                                <td class="tablaFilas">%{{detalle.descuento}}</td>
+                                <td class="tablaFilas">${{detalle.monto_eventual}}</td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer ModalFooter">
+        <a class="modal-close waves-effect waves-green btn ModalBotones">OK</a>
+    </div>
+</div>

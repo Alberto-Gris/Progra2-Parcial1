@@ -1,0 +1,256 @@
+<div class="row bodySubtitulo">
+    <div class="col l4"></div>
+    <div class="col l4">
+        <h4>CAJEROS</h4>
+
+        <!-- Modal Trigger -->
+        <a (click)="CrearCajero()" class="waves-effect waves-light btn modal-trigger ingresos" href="#modalNuevoCajero">
+            <i class="material-icons iconoss">add</i></a>
+
+        <!-- Modal Structure -->
+        <div id="modalNuevoCajero" class="col s4 modal modal-fixed-footer">
+            <div class="modal-content ModalContenido">
+                <h4>Nuevo Cajero</h4>
+                <form #FormularioNuevoCajero="ngForm" class="formularios">
+                    <div class="row">
+                        <div class="col l1"></div>
+                        <div class="col l10 input-field">
+                            <label for="nombre_usuario">Usuario</label>
+                            <input [(ngModel)]="cajero.nombre_usuario" id="nombre_usuario" type="text" class="validate"
+                                name="nombre_usuario" required #usuarioo="ngModel">
+                        </div>
+                        <div class="alert alert-danger mt-2 asterisco" [hidden]="usuarioo.valid">*
+                        </div>
+                        <div class="col l1"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l1"></div>
+                        <div class="col l10 input-field">
+                            <label for="nombres">Nombre(s)</label>
+                            <input [(ngModel)]="cajero.nombres" id="nombres" type="text" class="validate" name="nombres"
+                                required #nombress="ngModel">
+                        </div>
+                        <div class="alert alert-danger mt-2 asterisco" [hidden]="nombress.valid">*
+                        </div>
+                        <div class="col l1"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l1"></div>
+                        <div class="col l10 input-field">
+                            <label for="apellidos">Apellido(s)</label>
+                            <input [(ngModel)]="cajero.apellidos" id="apellidos" type="text" class="validate"
+                                name="apellidos" required #apellidoss="ngModel">
+                        </div>
+                        <div class="alert alert-danger mt-2 asterisco" [hidden]="apellidoss.valid">*
+                        </div>
+                        <div class="col l1"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l1"></div>
+                        <div class="col l10 input-field">
+                            <label for="correo">Correo</label>
+                            <input [(ngModel)]="cajero.correo" id="correo" type="text" class="validate" name="correo"
+                                required #correoo="ngModel">
+                        </div>
+                        <div class="alert alert-danger mt-2 asterisco" [hidden]="correoo.valid">*
+                        </div>
+                        <div class="col l1"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l1"></div>
+                        <div class="col l10 input-field">
+                            <label for="contrasena">Contraseña</label>
+                            <input [(ngModel)]="cajero.contrasena" id="contrasena" type="text" class="validate"
+                                name="contrasena" required #contrasenaa="ngModel">
+                        </div>
+                        <div class="alert alert-danger mt-2 asterisco" [hidden]="contrasenaa.valid">*
+                        </div>
+                        <div class="col l1"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l1"></div>
+                        <div class="col l10 input-field">
+                            <label for="telefono">Telefono</label>
+                            <input [(ngModel)]="cajero.telefono" id="telefono" type="text" class="validate"
+                                name="telefono" required #telefonoo="ngModel">
+                        </div>
+                        <div class="alert alert-danger mt-2 asterisco" [hidden]="telefonoo.valid">*
+                        </div>
+                        <div class="col l1"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l1"></div>
+                        <div class="col l10 input-field">
+                            <label for="direccion">Direccion</label>
+                            <input [(ngModel)]="cajero.direccion" id="direccion" type="text" class="validate"
+                                name="direccion" required #direccionn="ngModel">
+                        </div>
+                        <div class="alert alert-danger mt-2 asterisco" [hidden]="direccionn.valid">*
+                        </div>
+                        <div class="col l1"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer ModalFooter">
+                <button (click)="NuevoCajero()" class="modal-close waves-effect waves-green btn ModalBotones"
+                    [disabled]="FormularioNuevoCajero.invalid">Confirmar</button>
+                <a class="modal-close waves-effect waves-green btn ModalBotones">Cancelar</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="col l4"></div>
+</div>
+
+<div class="row bodySubtitulo">
+    <div class="col l1"></div>
+    <div class="col l10">
+        <label class="col s2 colores"><img src="../../../assets/imgs/liquidados.png" class="imagen"> Activos</label>
+        <label class="col s2 colores"><img src="../../../assets/imgs/noLiquidados.png"> Inactivos</label>
+        <table *ngIf="cajeros != undefined" class="">
+            <thead>
+                <tr>
+                    <th class="tablaCabecera">Usuario</th>
+                    <th class="tablaCabecera">Correo</th>
+                    <th class="tablaCabecera">Nombres</th>
+                    <th class="tablaCabecera">Apellidos</th>
+                    <th class="tablaCabecera">Telefono</th>
+                    <th class="tablaCabecera">Direccion</th>
+                    <th class="tablaCabecera"></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let cajero of cajeros | paginate: {
+                itemsPerPage: pageSize,
+                currentPage: p
+                };let i=index">
+                <tr *ngIf="cajero.cajero_activo == 1" class="cajeroActivo">
+                    <td class="tablaFilas">{{cajero.nombre_usuario}}</td>
+                    <td class="tablaFilas">{{cajero.correo}}</td>
+                    <td class="tablaFilas">{{cajero.nombres}}</td>
+                    <td class="tablaFilas">{{cajero.apellidos}}</td>
+                    <td class="tablaFilas">{{cajero.telefono}}</td>
+                    <td class="tablaFilas">{{cajero.direccion}}</td>
+                    <td class="tablaFilas"><a (click)="EditarCajero(cajero.id)"
+                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                            href="#modalEditarCajero"><i class="material-icons iconoss">edit</i></a>
+                        <a (click)="DeshabilitarCajero(cajero.id,cajero.nombre_usuario)"
+                            class="waves-effect waves-light btn btn-floating botonAcciones"><i
+                                class="material-icons iconoss">cancel</i></a>
+                    </td>
+                </tr>
+                <tr *ngIf="cajero.cajero_activo == 0" class="cajeroInactivo">
+                    <td class="tablaFilas">{{cajero.nombre_usuario}}</td>
+                    <td class="tablaFilas">{{cajero.correo}}</td>
+                    <td class="tablaFilas">{{cajero.nombres}}</td>
+                    <td class="tablaFilas">{{cajero.apellidos}}</td>
+                    <td class="tablaFilas">{{cajero.telefono}}</td>
+                    <td class="tablaFilas">{{cajero.direccion}}</td>
+                    <td class="tablaFilas"><a (click)="EditarCajero(cajero.id)"
+                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                            href="#modalEditarCajero"><i class="material-icons iconoss">edit</i></a><a
+                            (click)="HabilitarCajero(cajero.id,cajero.nombre_usuario)"
+                            class="waves-effect waves-light btn btn-floating botonAcciones"><i
+                                class="material-icons iconoss">check</i></a></td>
+                </tr>
+        </table>
+
+
+    </div>
+
+
+
+    <div id="modalEditarCajero" class="col s4 modal modal-fixed-footer">
+        <div class="modal-content ModalContenido">
+            <h4>Editar Cajero</h4>
+            <form #FormularioEditarCajero="ngForm" class="formularios">
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_nombre_usuario">Usuario</label>
+                        <input [(ngModel)]="cajero.nombre_usuario" id="editar_nombre_usuario" type="text"
+                            class="validate" name="editar_nombre_usuario" disabled="true">
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_nombres"> Nombres</label>
+                        <input [(ngModel)]="cajero.nombres" id="editar_nombres" type="text" class="validate"
+                            name="editar_nombres" disabled="true">
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_apellidos">Apellidos</label>
+                        <input [(ngModel)]="cajero.apellidos" id="editar_apellidos" type="text" class="validate"
+                            name="editar_apellidos" disabled="true">
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_correo">Correo</label>
+                        <input [(ngModel)]="cajero.correo" id="editar_orreo" type="text" class="validate"
+                            name="editar_correo" required #correooo="ngModel">
+                    </div>
+                    <div class="alert alert-danger mt-2 asterisco" [hidden]="correooo.valid">*
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_telefono">Telefono</label>
+                        <input [(ngModel)]="cajero.telefono" id="editar_telefono" type="text" class="validate"
+                            name="editar_telefono" required #telefonooo="ngModel">
+                    </div>
+                    <div class="alert alert-danger mt-2 asterisco" [hidden]="telefonooo.valid">*
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1"></div>
+                    <div class="col l10 input-field">
+                        <label class="active" for="editar_direccion">Direccion</label>
+                        <input [(ngModel)]="cajero.direccion" id="editar_direccion" type="text" class="validate"
+                            name="editar_direccion" required #direccionnn="ngModel">
+                    </div>
+                    <div class="alert alert-danger mt-2 asterisco" [hidden]="direccionnn.valid">*
+                    </div>
+                    <div class="col l1"></div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer ModalFooter">
+            <button (click)="ConfirmarEdicionCajero(cajero.id,cajero.nombre_usuario)"
+                class="modal-close waves-effect waves-green btn ModalBotones"
+                [disabled]="FormularioEditarCajero.invalid">Confirmar</button>
+            <a class="modal-close waves-effect waves-green btn ModalBotones">Cancelar</a>
+        </div>
+    </div>
+
+    <div class="col l1"></div>
+</div>
+
+<div class="container center-align">
+    <div class="row centrar espacio">
+        <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+            nextLabel="Siguiente">
+        </pagination-controls>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.barraNavegacion {
+    background-color: #99CDCD;
+}
+
+.barraNavegacionVendedor {
+    width: 200px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.barraNavegacionSub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.barraNavegacionSubElementos {
+    width: 15%;
+}
+
+.exit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    width: 140px;
+}
+
+.flecha {
+    color: white;
+    text-align: center;
+}
+
+.bodySubtitulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.agregarProductos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.colores {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.tabla {
+padding: auto;
+}
+
+.tablaCabecera {
+    padding: 1%;
+    text-align: center;
+    background-color: #FFE69A;
+}
+
+.tablaFilas {
+    padding: 1%;
+    text-align: center;
+}
+
+.botonAcciones {
+    text-align: center;
+    background-color: #CA99C5;
+    margin: 4px;
+}
+
+.ingresos {
+    text-align: center;
+    background-color: #000000;
+    width: 80px;
+}
+
+.iconoss {
+    text-align: center;
+    margin-top: 7px;
+}
+
+.iconoss2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ModalFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.ModalContenido {
+    text-align: center;
+    background-color: #F2E4D2;
+}
+
+.ModalBotones {
+    background-color: #000000;
+    border-radius: 15px;
+}
+
+.cajeroActivo {
+    background-color: #ABEBC6;
+}
+
+.cajeroInactivo {
+    background-color: #F1948A;
+}
+
+.colores {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    font-size: 16px;
+    color: #000000;
+    padding: 5px;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.ModalContenido::-webkit-scrollbar {
+    width: 13px;
+}
+
+.ModalContenido::-webkit-scrollbar-thumb {
+    background-color: #CA99C5;
+    border-radius: 5px;
+    border-right: 2px solid #F2E4D2;
+}
+
+.asterisco {
+    color: red;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.formularios {
+    border: #000000 1px solid;
+    border-radius: 8px;
+}
+
+.my-pagination {
+    display: flex;
+    padding: 1.2rem;
+    justify-content: center;
+    background-color: #CA99C5;
+    margin-top: 2rem; /* Ajusta este valor según lo alto que quieras que esté la paginación */
+}
+.espacio{
+    margin-bottom: 7rem;
+}

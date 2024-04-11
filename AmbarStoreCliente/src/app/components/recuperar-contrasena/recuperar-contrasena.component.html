@@ -1,0 +1,35 @@
+<div class="loginDiv">
+    <!--Imagen-->
+    <img src="../../../assets/imgs/Ámbar Gift Store-Logo PNG.png" alt="Logo" width="560" height="350">
+    <form #FormularioLogin="ngForm">
+
+        <!--Input Correo-->
+        <div class="row">
+            <div class="col l1"></div>
+            <div class="col l19 input-field">
+                <i class="material-icons prefix">vpn_key</i>
+                <input [(ngModel)]="contra1" id="nombre_usuario" type="password" class="validate" name="nombre_usuario" required #nombre_usuarioo="ngModel">
+                <label for="nombre_usuario">Nueva Contraseña</label>
+            </div>
+            <div class="col l1 alert alert-danger mt-2 asterisco" [hidden]="nombre_usuarioo.valid">*</div>
+            <div class="col l1"></div>
+        </div>
+        <div class="row">
+            <div class="col l1"></div>
+            <div class="col l19 input-field">
+                <i class="material-icons prefix">vpn_key</i>
+                <input [(ngModel)]="contra2" id="nombre_usuario" type="password" class="validate" name="nombre_usuario" required #nombre_usuarioo="ngModel">
+                <label for="nombre_usuario">Confirmar Contraseña</label>
+            </div>
+            <div class="col l1 alert alert-danger mt-2 asterisco" [hidden]="nombre_usuarioo.valid">*</div>
+            <div class="col l1"></div>
+        </div>
+    </form>
+
+    <!--Boton cambio-->
+    <div class="row">
+        <button (click)="actualizarContrasena(contra1,contra2)" class="waves-effect waves-light btn botonIngresar"
+            [disabled]="FormularioLogin.invalid" type="submit" name="action">Confirmar</button>
+    </div>
+
+</div>

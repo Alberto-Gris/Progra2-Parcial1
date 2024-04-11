@@ -1,0 +1,97 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.barraNavegacion {
+    background-color: #99CDCD;
+}
+
+.barraNavegacionVendedor {
+    width: 200px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.iconoCarrito {
+    width: 140px;
+    text-align: center;
+}
+
+.barraNavegacionSub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.barraNavegacionSubElementos {
+    width: 15%;
+}
+
+.exit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    width: 140px;
+    height: 65px;
+}
+
+.flecha {
+    color: white;
+    text-align: center;
+}
+
+.bodySubtitulo {
+    text-align: center;
+}
+
+.buscadorCliente {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-collapse: separate;
+}
+
+.tablaCabecera {
+    text-align: center;
+    background-color: #FFE69A;
+}
+
+.tablaFilas {
+    text-align: center;
+}
+
+.botonAcciones {
+    text-align: center;
+    background-color: #CA99C5;
+}
+
+.liquidados {
+    background-color: #ABEBC6;
+}
+
+.noliquidados {
+    background-color: #F1948A;
+}
+
+.colores {
+    font-size: 18px;
+    color: #000000;
+}
+
+.iconoss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.iconoss2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}

@@ -1,0 +1,90 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.bodySubtitulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.cardTitulo {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.cardAñadir {
+    text-align: center;
+}
+
+.cardAñadirBoton {
+    text-align: center;
+    background-color: #CA99C5;
+}
+.iconoss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.iconoss2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.iconoCarrito {
+    width: 140px;
+    text-align: center;
+}
+
+.cardPrecio {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cardEditar {
+    text-align: center;
+}
+
+.labelDisponibles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #000000;
+}
+
+.labelNoDisponibles {
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #FF0000;
+}
+
+.botonAcciones {
+    text-align: center;
+    background-color: #CA99C5;
+    margin: 4px;
+}
+.card{
+    border-radius: 3rem;
+    margin:1rem;
+}
+.my-pagination {
+    display: flex;
+    padding: 1.2rem;
+    justify-content: center;
+    background-color: #CA99C5;
+    margin-top: 2rem; /* Ajusta este valor según lo alto que quieras que esté la paginación */
+}
+.espacio{
+    margin-bottom: 7rem;
+}

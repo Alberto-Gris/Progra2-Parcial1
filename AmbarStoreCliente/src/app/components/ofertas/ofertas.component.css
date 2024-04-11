@@ -1,0 +1,46 @@
+.titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.botonNuevoProducto {
+    background-color: #CA99C5;
+}
+.tablaFilas {
+    padding: 1%;
+    text-align: center;
+}
+.tablaCabecera {
+    padding: 1%;
+    text-align: center;
+    background-color: #FFE69A;
+}
+.formularios {
+    border: #000000 1px solid;
+    border-radius: 8px;
+}
+.botonAcciones {
+    text-align: center;
+    background-color: #CA99C5;
+    margin: 4px;
+}
+.ModalBotones {
+    background-color: #000000;
+    border-radius: 15px;
+}
+.ModalContenido {
+    text-align: center;
+    background-color: #F2E4D2;
+}
+.ModalFooter {
+    display: flex;
+
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    background-color: #CA99C5;
+
+    
+}

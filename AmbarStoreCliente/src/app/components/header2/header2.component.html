@@ -1,0 +1,73 @@
+<nav class="nav-extended barraNavegacion">
+    <div class="nav-wrapper">
+        <a routerLink="/admin/productos" class="brand-logo"><img src="../../../assets/imgs/Ámbar Gift Store-Logo PNG.png"
+                alt="Logo" width="104" height="65"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med">
+            <li class="barraNavegacionVendedor">ADMINISTRADOR</li>
+        </ul>
+        <ul id="menu" class="right hide-on-med">
+            <li><a (click)="logout()" class="waves-effect waves-light exit" routerLink="/login"><i
+                        class="material-icons iconoss2">exit_to_app</i></a></li>
+        </ul>
+    </div>
+    <div class="nav-content">
+        <table id="subMenu" class="tabs tabs-transparent">
+            <tr class="barraNavegacionSub">
+
+                <div *ngIf="ruta == '/admin/productos'; then thenProductos else elseProductos"></div>
+                <ng-template #thenProductos>
+                    <td  class="tab btn disabled barraNavegacionSubElementos"><a 
+                        class="waves-effect waves-light">Productos</a></td>
+                </ng-template>
+                <ng-template #elseProductos>
+                    <td (click)="modificarRuta('/admin/productos')" class="tab barraNavegacionSubElementos"><a class="waves-effect waves-light"
+                    routerLink="/admin/productos">Productos</a></td>
+                </ng-template>
+
+                <!--
+                <div *ngIf="ruta == '/admin/apartados'; then thenApartados else elseApartados"></div>
+                <ng-template #thenApartados><td (click)="modificarRuta()" class="tab btn disabled barraNavegacionSubElementos"><a class="waves-effect waves-light"
+                    routerLink="/admin/apartados">Apartados</a></td></ng-template>
+                <ng-template #elseApartados><td (click)="modificarRuta()" class="tab barraNavegacionSubElementos"><a class="waves-effect waves-light"
+                    routerLink="/admin/apartados">Apartados</a></td></ng-template>
+
+                <div *ngIf="ruta == '/admin/composturas'; then thenComposturas else elseComposturas"></div>
+                <ng-template #thenComposturas><td (click)="modificarRuta()" class="tab btn btn-flat disabled barraNavegacionSubElementos"><a class="waves-effect waves-light"
+                    routerLink="/admin/apartados">Composturas</a></td></ng-template>
+                <ng-template #elseComposturas><td (click)="modificarRuta()" class="tab btn btn-flat disabled barraNavegacionSubElementos"><a class="waves-effect waves-light"
+                    routerLink="/admin/apartados">Composturas</a></td></ng-template>-->
+
+                <div *ngIf="ruta == '/admin/ventas'; then thenVentas else elseVentas"></div>
+                <ng-template #thenVentas>
+                    <td class="tab btn disabled barraNavegacionSubElementos"><a 
+                        class="waves-effect waves-light">Ventas</a></td>
+                </ng-template>
+                <ng-template #elseVentas>
+                    <td (click)="modificarRuta('/admin/ventas')" class="tab barraNavegacionSubElementos"><a class="waves-effect waves-light"
+                    routerLink="/admin/ventas">Ventas</a></td>
+                </ng-template>
+
+                <div *ngIf="ruta == '/admin/cajeros'; then thenCajeros else elseCajeros"></div>
+                <ng-template #thenCajeros>
+                    <td class="tab btn disabled barraNavegacionSubElementos"><a 
+                        class="waves-effect waves-light">Cajeros</a></td>
+                </ng-template>
+                <ng-template #elseCajeros>
+                    <td (click)="modificarRuta('/admin/cajeros')" class="tab barraNavegacionSubElementos"><a class="waves-effect waves-light"
+                    routerLink="/admin/cajeros">Cajeros</a></td>
+                </ng-template>
+
+                <div *ngIf="ruta == '/admin/ofertas'; then thenOfertas else elseOfertas"></div>
+                <ng-template #thenOfertas>
+                    <td class="tab btn disabled barraNavegacionSubElementos"><a 
+                        class="waves-effect waves-light">Ofertas</a></td>
+                </ng-template>
+                <ng-template #elseOfertas>
+                    <td (click)="modificarRuta('/admin/ofertas')" class="tab barraNavegacionSubElementos"><a class="waves-effect waves-light"
+                    routerLink="/admin/ofertas">Ofertas</a></td>
+                </ng-template>
+            </tr>
+        </table>
+    </div>
+</nav>

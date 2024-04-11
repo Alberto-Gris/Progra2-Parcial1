@@ -1,0 +1,55 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.barraNavegacion {
+    background-color: #99CDCD;
+}
+
+.barraNavegacionVendedor {
+    width: 200px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.iconoCarrito {
+    width: 140px;
+    height: 40px;
+    text-align: center;
+}
+
+.barraNavegacionSub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.barraNavegacionSubElementos {
+    width: 15%;
+}
+
+.exit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    width: 140px;
+    height: 65px;
+}
+
+.flecha {
+    color: white;
+    text-align: center;
+}
+
+.iconoss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.iconoss2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

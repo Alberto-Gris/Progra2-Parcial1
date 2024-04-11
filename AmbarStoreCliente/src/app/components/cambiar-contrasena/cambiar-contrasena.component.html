@@ -1,0 +1,31 @@
+<div class="loginDiv">
+    <!--Imagen-->
+    <img src="../../../assets/imgs/Ámbar Gift Store-Logo PNG.png" alt="Logo" width="560" height="350">
+    <form #FormularioLogin="ngForm">
+
+        <!--Input Correo-->
+        <div class="row">
+            <div class="col l1"></div>
+            <div class="col l19 input-field">
+                <i class="material-icons prefix">email</i>
+                <input [(ngModel)]="usuario.correo" id="nombre_usuario" type="text" class="validate" name="nombre_usuario" required #nombre_usuarioo="ngModel">
+                <label for="nombre_usuario">Correo</label>
+            </div>
+            <div class="col l1 alert alert-danger mt-2 asterisco" [hidden]="nombre_usuarioo.valid">*</div>
+            <div class="col l1"></div>
+        </div>
+    </form>
+
+    <!--Boton cambio-->
+    <div class="row">
+        <button (click)="enviarCorreo(usuario.correo)" class="waves-effect waves-light btn botonIngresar"
+            [disabled]="FormularioLogin.invalid" type="submit" name="action">Enviar</button>
+    </div>
+
+    <!--Boton Regresar Login-->
+    <div class="row">
+    <button (click)="logueo()" class="waves-effect waves-light btn botonIngresar"
+        type="submit" name="action">Volver</button>
+    </div>
+
+</div>

@@ -1,0 +1,162 @@
+
+<div class="container">
+    <h4 class="titulo">OFERTAS</h4>
+    <a (click)="enviarOfertas()" class="botonNuevoProducto waves-effect waves-light btn"><i
+        class="material-icons iconoss">send</i></a>
+</div>
+
+
+<div class="row bodySubtitulo">
+    <div class="col l1"></div>
+    <div class="col l10">
+        <table *ngIf="productos != undefined" class="">
+            <thead>
+                <tr>
+                    <th class="tablaCabecera">Producto</th>
+                    <th class="tablaCabecera">Precio</th>
+                    <th class="tablaCabecera">Descripcion</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let producto of productos | paginate: {
+                itemsPerPage: pageSize,
+                currentPage: p
+                };let i=index">
+                    <td class="tablaFilas">{{producto.producto}}</td>
+                    <td class="tablaFilas">{{producto.precio}}</td>
+                    <td class="tablaFilas">{{producto.descripcion}}</td>
+                    <td class="tablaFilas"><a (click)="addOferta(producto.id)"
+                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones">
+                            <i class="material-icons iconoss">add</i></a></td>   
+        </table>
+
+
+    </div>
+    <div class="col l1"></div>
+</div>
+
+<div class="container center-align">
+    <div class="row center-align">
+        <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+            nextLabel="Siguiente">
+        </pagination-controls>
+    </div>
+</div>
+
+<table class="striped">
+    <thead>
+      <tr>
+          <th>Producto</th>
+          <th>Precio Original</th>
+          <th>Precio con descuento</th>
+          <th>Duracion</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let temp of ofertas; let i=index">
+        <td>{{temp.producto}}</td>
+        <td>{{temp.precio}}</td>
+        <td>{{temp.precioDescuento}}</td>
+        <td>{{temp.duracion}}</td>
+        <td> <i (click)="eliminarPromo(temp.producto)" class="material-icons btn">delete</i></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <h4 class="titulo">Descuentos</h4>
+    <a (click)="crearDescuento()"
+                        class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones">
+                        <i class="material-icons iconoss">add</i></a>
+</div>
+<table class="striped">
+<thead>
+  <tr>
+      <th>Id de descuento</th>
+      <th>Porcentaje de descuento</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr *ngFor="let descuento of descuentos; let i=index">
+    <td>{{descuento.id}}</td>
+    <td>% {{descuento.porcentaje}}</td>
+
+    <td> <i (click)="eliminarDescuento(descuento.id)" class="material-icons btn">delete</i></td>
+  </tr>
+</tbody>
+</table>
+
+<div id="modalAgregarOferta" class="col s4 modal modal-fixed-footer">
+    <div class="modal-content ModalContenido">
+        <h4>Agregar Informacion</h4>
+        <form #FormularioEditarCajero="ngForm" class="formularios">
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10 input-field">
+                    <label>Producto </label><br>
+                    <input [(ngModel)]="producto.producto" name="producto" disabled value="I am not editable" id="disabled" type="text" class="validate">
+                    <label for="disabled"></label>
+                </div>
+                <div class="col l1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10 input-field">
+                    <label>Precio</label><br>
+                    <input [(ngModel)]="producto.precio" name="precio" disabled value="I am not editable" id="disabled" type="text" class="validate">
+                    <label for="disabled"></label>
+                </div>
+                <div class="col l1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10 input-field">
+                    <label>Precio con descuento </label><br>
+                    <input [(ngModel)]="producto.precioDescuento" name="precioDescuento" disabled value="I am not editable" id="disabled" type="text" class="validate">
+                    <label for="disabled"></label>
+                </div>
+                <div class="col l1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10 input-field">
+                    <label for="datepicker">Duración de la Promoción (Días)</label><br>
+                    <input [(ngModel)]="oferta.duracion" name="producto" id="date" type="date" class="datepicker">
+                </div>
+                <div class="col l1"></div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer ModalFooter">
+        <button (click)="ConfirmarProducto(producto.producto)"
+            class="modal-close waves-effect waves-green btn ModalBotones"
+            [disabled]="FormularioEditarCajero.invalid">Confirmar</button>
+        <a class="modal-close waves-effect waves-green btn ModalBotones">Cancelar</a>
+    </div>
+</div>
+
+<div id="modalAgregarDescuento" class="col s4 modal modal-fixed-footer">
+    <div class="modal-content ModalContenido">
+        <h4>Agregar Descuento</h4>
+        <form #FormularioEditarCajero="ngForm" class="formularios">
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10 input-field">
+                    <label>Porcentaje </label><br>
+                    <input [(ngModel)]="nuevoDescuento.porcentaje" name="producto" value="I am not editable" id="disabled" type="text" class="validate">
+                    <label for="disabled"></label>
+                </div>
+                <div class="col l1"></div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer ModalFooter">
+        <button (click)="enviarDescuento(nuevoDescuento.porcentaje)"
+            class="modal-close waves-effect waves-green btn ModalBotones"
+            [disabled]="FormularioEditarCajero.invalid">Confirmar</button>
+        <a class="modal-close waves-effect waves-green btn ModalBotones">Cancelar</a>
+    </div>
+</div>

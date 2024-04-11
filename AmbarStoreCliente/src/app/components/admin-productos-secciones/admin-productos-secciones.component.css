@@ -1,0 +1,158 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.barraNavegacion {
+    background-color: #99CDCD;
+}
+
+.barraNavegacionVendedor {
+    width: 200px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.barraNavegacionSub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.barraNavegacionSubElementos {
+    width: 15%;
+}
+
+.exit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    width: 140px;
+    height: 65px;
+}
+
+.flecha {
+    color: white;
+    text-align: center;
+}
+
+.bodySubtitulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.cardTitulo {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.cardPrecio {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cardEditar {
+    text-align: center;
+}
+
+.cardEditarBoton {
+    background-color: #CA99C5;
+    width: 60px;
+}
+
+.labelDisponibles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #000000;
+}
+
+.colores {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.botonNuevoProducto {
+    background-color: #CA99C5;
+}
+
+.botonAcciones {
+    text-align: center;
+    background-color: #CA99C5;
+    margin: 4px;
+}
+
+.iconoss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 7px;
+}
+
+.iconoss2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ModalFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.ModalContenido {
+    background-color: #F2E4D2;
+    
+}
+
+.ModalBotones {
+    background-color: #000000;
+}
+
+.ModalSeleccionador {
+    text-align: center;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.ModalContenido::-webkit-scrollbar {
+    width: 13px;
+}
+
+.ModalContenido::-webkit-scrollbar-thumb {
+    background-color: #CA99C5;
+    border-radius: 5px;
+    border-right: 2px solid #F2E4D2;
+}
+
+.asterisco {
+    color: red;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.formularios {
+    border: #000000 1px solid;
+    border-radius: 8px;
+}
+
+.my-pagination {
+    display: flex;
+    padding: 1.2rem;
+    justify-content: center;
+    background-color: #CA99C5;
+    margin-top: 2rem; /* Ajusta este valor según lo alto que quieras que esté la paginación */
+}
+.espacio{
+    margin-bottom: 7rem;
+}

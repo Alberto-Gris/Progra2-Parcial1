@@ -1,0 +1,434 @@
+<div class="container">
+    <h4 class="titulo">VENTAS</h4>
+    <br>
+    <div class="row">
+        <div class="col l5"></div>
+        <div class="col l2">
+            <input #fechaD (change)="ActualizarFecha(fechaD.value)" type="text" class="datepicker fecha"
+                placeholder="Fecha">
+        </div>
+        <div class="col l5"></div>
+    </div>
+    <ul #pp class="collapsible popout">
+
+        <!--DIA-->
+        <li>
+            <div class="collapsible-header collap">Dia</div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <div *ngIf="ventasDia.length != 0; then thenVentas1 else elseVentas1"></div>
+                    <ng-template #thenVentas1>
+                        <div class="row ">
+                            <div class="col l3 uno">
+                                <h5 class="datos">Costos: ${{costoDia}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ganancias: ${{gananciaDia}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Total: ${{totalDia}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ticket Promedio: ${{ticketDia}}</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <table *ngIf="ventasDia != undefined">
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera2" colspan="7"><h5>Carritos</h5></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera">Cajero</th>
+                                    <th class="tablaCabecera">Fecha</th>
+                                    <th class="tablaCabecera">Hora</th>
+                                    <th class="tablaCabecera">Costos</th>
+                                    <th class="tablaCabecera">Ganancias</th>
+                                    <th class="tablaCabecera">Total</th>
+                                    <th class="tablaCabecera"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let ventaaDia of ventasDia | paginate: {
+                                itemsPerPage: pageSize,
+                                currentPage: p
+                                };let i=index">
+                                <tr>
+                                    <td class="tablaFilas">{{ventaaDia.cajero}}</td>
+                                    <td class="tablaFilas">{{ ventaDia.fecha | date:'dd-MM-yyyy' }}</td>
+                                    <td class="tablaFilas">{{ ventaaDia.hora }}</td>
+                                    <td class="tablaFilas">${{ventaaDia.costo_eventual}}</td>
+                                    <td class="tablaFilas">${{ventaaDia.ganancia}}</td>
+                                    <td class="tablaFilas">${{ventaaDia.monto_eventual}}</td>
+                                    <td class="tablaFilas"><a (click)="MostrarCarrito(ventaaDia.id)"
+                                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                                            href="#modalMostrarCarrito"><i
+                                                class="material-icons iconoss">format_align_justify</i></a></td>
+                                </tr>
+                        </table>
+                        <div class="container center-align">
+                            <div class="row centrar espacio">
+                                <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+                                    nextLabel="Siguiente">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template #elseVentas1>
+                        <div *ngIf="!fechaD.value;">
+                            <h5 class="text-align center">Seleccione Una Fecha.</h5>
+                        </div>
+                        <div *ngIf="fechaD.value;">
+                            <h5 class="text-align center">No Se Registraron Ventas El Dia: {{fechaD.value}}.</h5>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+        <!--SEMANAL-->
+        <li>
+            <div class="collapsible-header collap2">Semanal</div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <div *ngIf="ventasSemana.length != 0; then thenVentas2 else elseVentas2"></div>
+                    <ng-template #thenVentas2>
+                        <div class="row ">
+                            <div class="col l3 uno">
+                                <h5 class="datos">Costos: ${{costoSemana}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ganancias: ${{gananciaSemana}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Total: ${{totalSemana}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ticket Promedio: ${{ticketSemana}}</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <table *ngIf="ventasSemana != undefined">
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera2" colspan="7"><h5>Carritos</h5></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera">Cajero</th>
+                                    <th class="tablaCabecera">Fecha</th>
+                                    <th class="tablaCabecera">Hora</th>
+                                    <th class="tablaCabecera">Costos</th>
+                                    <th class="tablaCabecera">Ganancias</th>
+                                    <th class="tablaCabecera">Total</th>
+                                    <th class="tablaCabecera"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let ventaaSemana of ventasSemana | paginate: {
+                                itemsPerPage: pageSize,
+                                currentPage: p
+                                };let i=index">
+                                <tr>
+                                    <td class="tablaFilas">{{ventaaSemana.cajero}}</td>
+                                    <td class="tablaFilas">{{ ventaaSemana.fecha | date:'dd-MM-yyyy' }}</td>
+                                    <td class="tablaFilas">{{ ventaaSemana.hora }}</td>
+                                    <td class="tablaFilas">${{ventaaSemana.costo_eventual}}</td>
+                                    <td class="tablaFilas">${{ventaaSemana.ganancia}}</td>
+                                    <td class="tablaFilas">${{ventaaSemana.monto_eventual}}</td>
+                                    <td class="tablaFilas"><a (click)="MostrarCarrito(ventaaSemana.id)"
+                                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                                            href="#modalMostrarCarrito"><i
+                                                class="material-icons iconoss">format_align_justify</i></a></td>
+                                </tr>
+                        </table> 
+                        <div class="container center-align">
+                            <div class="row centrar espacio">
+                                <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+                                    nextLabel="Siguiente">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template #elseVentas2>
+                        <div *ngIf="!fechaD.value;">
+                            <h5 class="text-align center">Seleccione Una Fecha.</h5>
+                        </div>
+                        <div *ngIf="fechaD.value;">
+                            <h5 class="text-align center">No Se Registraron Ventas El Dia: {{fechaD.value}}.</h5>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+
+        <!--MENSUAL-->
+        <li>
+            <div class="collapsible-header collap">Mensual</div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <div *ngIf="ventasMes.length != 0; then thenVentas3 else elseVentas3"></div>
+                    <ng-template #thenVentas3>
+                        <div class="row">
+                            <div class="col l3 uno">
+                                <h5 class="datos">Costos: ${{costoMes}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ganancias: ${{gananciaMes}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Total: ${{totalMes}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ticket Promedio: ${{ticketMes}}</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <table *ngIf="ventasMes != undefined">
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera2" colspan="7"><h5>Carritos</h5></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera">Cajero</th>
+                                    <th class="tablaCabecera">Fecha</th>
+                                    <th class="tablaCabecera">Hora</th>
+                                    <th class="tablaCabecera">Costos</th>
+                                    <th class="tablaCabecera">Ganancias</th>
+                                    <th class="tablaCabecera">Total</th>
+                                    <th class="tablaCabecera"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let ventaaMes of ventasMes | paginate: {
+                                itemsPerPage: pageSize,
+                                currentPage: p
+                                };let i=index">
+                                <tr>
+                                    <td class="tablaFilas">{{ventaaMes.cajero}}</td>
+                                    <td class="tablaFilas">{{ ventaaMes.fecha | date:'dd-MM-yyyy' }}</td>
+                                    <td class="tablaFilas">{{ ventaaMes.hora }}</td>
+                                    <td class="tablaFilas">${{ventaaMes.costo_eventual}}</td>
+                                    <td class="tablaFilas">${{ventaaMes.ganancia}}</td>
+                                    <td class="tablaFilas">${{ventaaMes.monto_eventual}}</td>
+                                    <td class="tablaFilas"><a (click)="MostrarCarrito(ventaaMes.id)"
+                                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                                            href="#modalMostrarCarrito"><i
+                                                class="material-icons iconoss">format_align_justify</i></a></td>
+                                </tr>
+                        </table>
+                        <div class="container center-align">
+                            <div class="row centrar espacio">
+                                <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+                                    nextLabel="Siguiente">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template #elseVentas3>
+                        <div *ngIf="!fechaD.value;">
+                            <h5 class="text-align center">Seleccione Una Fecha.</h5>
+                        </div>
+                        <div *ngIf="fechaD.value;">
+                            <h5 class="text-align center">No Se Registraron Ventas El Dia: {{fechaD.value}}.</h5>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+        <!--ANUAL-->
+        <li>
+            <div class="collapsible-header collap2">Anual</div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <div *ngIf="ventasAnio.length != 0; then thenVentas4 else elseVentas4"></div>
+                    <ng-template #thenVentas4>
+                        <div class="row">
+                            <div class="col l3 uno">
+                                <h5 class="datos">Costos: ${{costoAnio}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ganancias: ${{gananciaAnio}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Total: ${{totalAnio}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ticket Promedio: ${{ticketAnio}}</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <table *ngIf="ventasAnio != undefined">
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera2" colspan="7"><h5>Carritos</h5></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera">Cajero</th>
+                                    <th class="tablaCabecera">Fecha</th>
+                                    <th class="tablaCabecera">Hora</th>
+                                    <th class="tablaCabecera">Costos</th>
+                                    <th class="tablaCabecera">Ganancias</th>
+                                    <th class="tablaCabecera">Total</th>
+                                    <th class="tablaCabecera"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let ventaaAnio of ventasAnio | paginate: {
+                                itemsPerPage: pageSize,
+                                currentPage: p
+                                };let i=index">
+                                <tr>
+                                    <td class="tablaFilas">{{ventaaAnio.cajero}}</td>
+                                    <td class="tablaFilas">{{ ventaaAnio.fecha | date:'dd-MM-yyyy' }}</td>
+                                    <td class="tablaFilas">{{ ventaaAnio.hora }}</td>
+                                    <td class="tablaFilas">${{ventaaAnio.costo_eventual}}</td>
+                                    <td class="tablaFilas">${{ventaaAnio.ganancia}}</td>
+                                    <td class="tablaFilas">${{ventaaAnio.monto_eventual}}</td>
+                                    <td class="tablaFilas "><a (click)="MostrarCarrito(ventaaAnio.id)"
+                                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                                            href="#modalMostrarCarrito"><i
+                                                class="material-icons iconoss">format_align_justify</i></a></td>
+                                </tr>
+                        </table>
+                        <div class="container center-align">
+                            <div class="row centrar espacio">
+                                <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+                                    nextLabel="Siguiente">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template #elseVentas4>
+                        <div *ngIf="!fechaD.value;">
+                            <h5 class="text-align center">Seleccione Una Fecha.</h5>
+                        </div>
+                        <div *ngIf="fechaD.value;">
+                            <h5 class="text-align center">No Se Registraron Ventas El Dia: {{fechaD.value}}.</h5>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+
+        <li>
+            <div class="collapsible-header collap">Siempre</div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <div *ngIf="ventasSiempre.length != 0; then thenVentas5 else elseVentas5"></div>
+                    <ng-template #thenVentas5>
+                        <div class="row">
+                            <div class="col l3 uno">
+                                <h5 class="datos">Costos: ${{costoSiempre}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ganancias: ${{gananciaSiempre}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Total: ${{totalSiempre}}</h5>
+                            </div>
+                            <div class="col l3 uno">
+                                <h5 class="datos">Ticket Promedio: ${{ticketSiempre}}</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <table *ngIf="ventasSiempre != undefined">
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera2" colspan="7"><h5>Carritos</h5></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th class="tablaCabecera">Cajero</th>
+                                    <th class="tablaCabecera">Fecha</th>
+                                    <th class="tablaCabecera">Hora</th>
+                                    <th class="tablaCabecera">Costos</th>
+                                    <th class="tablaCabecera">Ganancias</th>
+                                    <th class="tablaCabecera">Total</th>
+                                    <th class="tablaCabecera"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let ventaaSiempre of ventasSiempre | paginate: {
+                                itemsPerPage: pageSize,
+                                currentPage: p
+                                };let i=index">">
+                                <tr>
+                                    <td class="tablaFilas">{{ventaaSiempre.cajero}}</td>
+                                    <td class="tablaFilas">{{ ventaaSiempre.fecha | date:'dd-MM-yyyy' }}</td>
+                                    <td class="tablaFilas">{{ ventaaSiempre.hora }}</td>
+                                    <td class="tablaFilas">${{ventaaSiempre.costo_eventual}}</td>
+                                    <td class="tablaFilas">${{ventaaSiempre.ganancia}}</td>
+                                    <td class="tablaFilas">${{ventaaSiempre.monto_eventual}}</td>
+                                    <td class="tablaFilas"><a (click)="MostrarCarrito(ventaaSiempre.id)"
+                                            class="waves-effect waves-light btn btn-floating modal-trigger botonAcciones"
+                                            href="#modalMostrarCarrito"><i
+                                                class="material-icons iconoss">format_align_justify</i></a></td>
+                                </tr>
+                        </table>
+                        <div class="container center-align">
+                            <div class="row centrar espacio">
+                                <pagination-controls class="my-pagination" (pageChange)="p = ($event)" previousLabel="Anterior"
+                                    nextLabel="Siguiente">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template #elseVentas5>
+                        <div *ngIf="!fechaD.value;">
+                            <h5 class="text-align center">Seleccione Una Fecha.</h5>
+                        </div>
+                        <div *ngIf="fechaD.value;">
+                            <h5 class="text-align center">No Se Registraron Ventas El Dia: {{fechaD.value}}.</h5>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+
+
+
+<div id="modalMostrarCarrito" class="col s4 modal modal-fixed-footer">
+    <div class="modal-content ModalContenido">
+        <h4>Detalles</h4>
+        <br>
+        <form #FormularioEditarCajero="ngForm" class="formularios">
+            <div class="row">
+                <div>
+                    <table *ngIf="mostrarCarritoModel != undefined">
+                        <thead>
+                            <tr>
+                                <th class="tablaCabecera">Producto</th>
+
+                                <th class="tablaCabecera">Cantidad</th>
+                                <th class="tablaCabecera">Total Sin Descuento</th>
+                                <th class="tablaCabecera">Descuento</th>
+                                <th class="tablaCabecera">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let detalle of mostrarCarritoModel">
+                            <tr>
+                                <td class="tablaFilas">{{detalle.producto}}</td>
+                                <td class="tablaFilas">{{detalle.cantidad}}</td>
+                                <td class="tablaFilas">${{detalle.monto_eventual_sin_descuento}}</td>
+                                <td class="tablaFilas">%{{detalle.descuento}}</td>
+                                <td class="tablaFilas">${{detalle.monto_eventual}}</td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer ModalFooter">
+        <a class="modal-close waves-effect waves-green btn ModalBotones">OK</a>
+    </div>
+</div>

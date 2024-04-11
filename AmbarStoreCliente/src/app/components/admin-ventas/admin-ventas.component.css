@@ -1,0 +1,119 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.collap {
+    border-radius: 4px;
+    background-color: #a1d5d5;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: large;
+}
+
+.collap2 {
+    border-radius: 4px;
+    background-color: #d8a7d4;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: large;
+}
+
+.fecha {
+    text-align: center;
+    width: 15%;
+}
+
+.iconoss {
+    text-align: center;
+    margin-top: 7px;
+}
+
+.buscar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: #CA99C5;
+    width: 40%;
+    margin: auto;
+}
+
+.botonAcciones {
+    text-align: center;
+    background-color: #CA99C5;
+    margin: 4px;
+}
+
+.tablaCabecera {
+    border-collapse: collapse;
+    padding: 1%;
+    text-align: center;
+    background-color: #FFE69A;
+}
+
+.tablaCabecera2 {
+    border-collapse: collapse;
+    padding: 1%;
+    text-align: center;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.tablaFilas {
+    padding: 1%;
+    text-align: center;
+}
+
+.ModalFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CA99C5;
+}
+
+.ModalContenido {
+    text-align: center;
+    background-color: #F2E4D2;
+}
+
+.ModalBotones {
+    background-color: #000000;
+    border-radius: 15px;
+}
+
+.ModalContenido::-webkit-scrollbar {
+    width: 13px;
+}
+
+.ModalContenido::-webkit-scrollbar-thumb {
+    background-color: #CA99C5;
+    border-radius: 5px;
+    border-right: 2px solid #F2E4D2;
+}
+
+.formularios {
+    border-radius: 8px;
+}
+
+.datos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.uno {
+    color: #000000;
+}
+.espacio{
+    margin-bottom: 7rem;
+}
